@@ -63,11 +63,17 @@ namespace Labyrinth
             return res.ToString();
         }
 
-        public ICrawler NewCrawler()
+        private Tile getAdjacentTileFromDirection(int x, int y, Direction direction)
         {
-            return new Crawler(2, 1, Direction.North, Wall.Singleton);
+            return _tiles[x + direction.DeltaX, y + direction.DeltaY];
         }
 
+        public ICrawler NewCrawler()
+        {
+            return new Crawler(_startPosition.Item1, _startPosition.Item2, Crawler.START_DIRECTION,
+                getAdjacentTileFromDirection(_startPosition.Item1, _startPosition.Item2, Crawler.START_DIRECTION));
+        }
+        
         private readonly Tile[,] _tiles;
         private (int, int) _startPosition;
     }
