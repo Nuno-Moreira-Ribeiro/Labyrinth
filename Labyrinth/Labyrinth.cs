@@ -65,11 +65,12 @@ namespace Labyrinth
 
         private Tile getAdjacentTileFromDirection(int x, int y, Direction direction)
         {
-            if(y+direction.DeltaY<0)
+            int targetY = y + direction.DeltaY;
+            if(targetY < 0)
             {
                 return Outside.Singleton;
             }
-            return _tiles[x + direction.DeltaX, y + direction.DeltaY];
+            return _tiles[x + direction.DeltaX, targetY];
         }
 
         public ICrawler NewCrawler()
