@@ -129,7 +129,20 @@ public class LabyrinthCrawlerTest
     [Test]
     public void TurnLeftFacesWestTile()
     {
-        Assert.That(false);
+        //Arrange
+        var laby = new Labyrinth.Labyrinth(new AsciiParser("""
+            +--+
+            | x|
+            +--+
+            """));
+
+        //Act
+        var test = laby.NewCrawler();
+        test.Direction.TurnLeft();
+
+        //Assert
+        Assert.That(test.FacingTile, Is.TypeOf<Room>());
+        Assert.That(test.Direction, Is.EqualTo(Direction.West));
     }
 
     [Test]
