@@ -19,7 +19,9 @@ namespace Labyrinth.Crawl
                 int targetX = X + Direction.DeltaX;
                 int targetY = Y + Direction.DeltaY;
 
-                if (targetY< 0 || targetX < 0 || targetX >= Tiles.GetLength(0))
+                if (targetY< 0 || targetX < 0 
+                    || targetX >= Tiles.GetLength(0) 
+                    || targetY >= Tiles.GetLength(1))
                 {
                     return Outside.Singleton;
                 }
