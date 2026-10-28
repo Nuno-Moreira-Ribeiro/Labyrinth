@@ -94,7 +94,17 @@ public class LabyrinthCrawlerTest
     [Test]
     public void FacingEastOnFarRightTileReturnsOutside()
     {
-        Assert.That(false);
+        var laby = new Labyrinth.Labyrinth(new AsciiParser("""
+            +--+
+            |  x
+            |  |
+            +--+
+            """));
+
+        var test = laby.NewCrawler();
+        test.Direction.TurnRight();
+
+        Assert.That(test.FacingTile, Is.TypeOf<Outside>());
     }
 
     [Test]
