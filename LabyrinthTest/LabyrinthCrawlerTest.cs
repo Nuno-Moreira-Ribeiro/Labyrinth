@@ -72,7 +72,7 @@ public class LabyrinthCrawlerTest
 
         var test = laby.NewCrawler();
 
-        Assert.That(test.FacingTile.GetType, Is.TypeOf<Outside>());
+        Assert.That(test.FacingTile, Is.TypeOf<Outside>());
     }
 
     [Test]

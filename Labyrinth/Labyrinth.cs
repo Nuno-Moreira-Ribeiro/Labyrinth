@@ -65,6 +65,10 @@ namespace Labyrinth
 
         private Tile getAdjacentTileFromDirection(int x, int y, Direction direction)
         {
+            if(y+direction.DeltaY<0)
+            {
+                return Outside.Singleton;
+            }
             return _tiles[x + direction.DeltaX, y + direction.DeltaY];
         }
 
