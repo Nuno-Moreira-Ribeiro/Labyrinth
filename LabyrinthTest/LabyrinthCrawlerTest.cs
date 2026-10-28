@@ -48,16 +48,14 @@ public class LabyrinthCrawlerTest
     [Test]
     public void InitWithNoXThrowsArgumentException()
     {
-        //Arrange
-        var laby = new Labyrinth.Labyrinth(new AsciiParser("""
+        //Arrange & Act & Assert
+        Assert.Throws<ArgumentException>(() => new Labyrinth.Labyrinth(new AsciiParser("""
             +--+
             |  |
             |  |
             +--+
-            """));
+            """)));
 
-        //Act & Assert
-        Assert.Throws<ArgumentException>(() => laby.NewCrawler());
     }
     #endregion
 
