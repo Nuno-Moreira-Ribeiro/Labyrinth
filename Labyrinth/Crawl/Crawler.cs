@@ -10,8 +10,8 @@ namespace Labyrinth.Crawl
     {
         public static Direction StartDirection => Direction.North;
 
-        public int X { get; }
-        public int Y { get; }
+        public int X { get; private set; }
+        public int Y { get; private set; }
         public Direction Direction { get; }
         private Tile[,] Tiles { get; }
         public Tile FacingTile { 
@@ -32,6 +32,8 @@ namespace Labyrinth.Crawl
 
         public Inventory Walk()
         {
+            this.X += Direction.DeltaX;
+            this.Y += Direction.DeltaY;
             return new MyInventory();
         }
 
