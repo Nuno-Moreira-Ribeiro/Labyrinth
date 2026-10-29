@@ -316,5 +316,20 @@ public class LabyrinthCrawlerTest
         Assert.That(test.FacingTile, Is.TypeOf<Door>());
         Assert.Throws<InvalidOperationException>(() => test.Walk());
     }
+
+    [Test]
+    public void WidthAndHeightMatchTheMap()
+    {
+        var laby = new Labyrinth.Labyrinth(new AsciiParser("""
+        +--+
+        | x|
+        |  |
+        +--+
+        """));
+
+        using var all = Assert.EnterMultipleScope();
+        Assert.That(laby.Width, Is.EqualTo(4));
+        Assert.That(laby.Height, Is.EqualTo(4));
+    }
     #endregion
 }
