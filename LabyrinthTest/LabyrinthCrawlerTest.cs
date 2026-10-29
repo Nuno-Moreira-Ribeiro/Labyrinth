@@ -298,4 +298,23 @@ public class LabyrinthCrawlerTest
         Assert.That(test.FacingTile, Is.TypeOf<Outside>());
     }
     #endregion
+
+    #region Additional Tests
+    [Test]
+    public void WalkOnLockedDoorThrowsInvalidOperationException()
+    {
+        var laby = new Labyrinth.Labyrinth(new AsciiParser("""
+        +--+
+        |xk|
+        +-/+
+        """));
+        var test = laby.NewCrawler();
+        test.Direction.TurnRight();
+        test.Walk();
+        test.Direction.TurnRight();
+
+        Assert.That(test.FacingTile, Is.TypeOf<Door>());
+        Assert.Throws<InvalidOperationException>(() => test.Walk());
+    }
+    #endregion
 }
