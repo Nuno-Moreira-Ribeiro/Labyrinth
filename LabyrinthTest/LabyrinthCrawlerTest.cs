@@ -222,7 +222,7 @@ public class LabyrinthCrawlerTest
         //Arrange
         var laby = new Labyrinth.Labyrinth(new AsciiParser("""
             +--+
-            |  |
+            |  /
             |kx|
             +--+
             """));
@@ -242,7 +242,7 @@ public class LabyrinthCrawlerTest
         Assert.That(inventory, Is.TypeOf<MyInventory>());
         Assert.That(inventory, Is.Not.Null);
         Assert.That(inventory.HasItem, Is.True);
-        Assert.That(inventory.ItemType, Is.TypeOf<Key>());
+        Assert.That(inventory.ItemType, Is.EqualTo(typeof(Key)));
     }
 
     [Test]
