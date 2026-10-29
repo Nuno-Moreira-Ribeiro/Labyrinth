@@ -331,5 +331,25 @@ public class LabyrinthCrawlerTest
         Assert.That(laby.Width, Is.EqualTo(4));
         Assert.That(laby.Height, Is.EqualTo(4));
     }
+
+    [Test]
+    public void Minimal3x3MapIsAccepted()
+    {
+        Assert.DoesNotThrow(() => new Labyrinth.Labyrinth(new AsciiParser("""
+        +-+
+        |x|
+        +-+
+        """)));
+    }
+
+    [Test]
+    public void MapNarrowerThan3ThrowsArgumentException()
+    {
+        Assert.Throws<ArgumentException>(() => new Labyrinth.Labyrinth(new AsciiParser("""
+        +-
+        x|
+        +-
+        """)));
+    }
     #endregion
 }
