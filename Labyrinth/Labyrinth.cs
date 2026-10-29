@@ -66,7 +66,7 @@ namespace Labyrinth
 
         public ICrawler NewCrawler()
         {
-            return new Crawler(_startPosition.Item1, _startPosition.Item2, Crawler.StartDirection, _tiles);
+            return new Crawler(_startPosition.Item1, _startPosition.Item2, _tiles);
         }
         
         private readonly Tile[,] _tiles;

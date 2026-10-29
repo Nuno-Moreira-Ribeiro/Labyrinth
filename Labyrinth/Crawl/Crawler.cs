@@ -38,7 +38,7 @@ namespace Labyrinth.Crawl
             return inventory;
         }
 
-        public Crawler(int x, int y, Direction direction, Tile[,] tiles)
+        public Crawler(int x, int y, Tile[,] tiles)
         {
             this.X = x;
             this.Y = y;
