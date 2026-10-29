@@ -32,9 +32,10 @@ namespace Labyrinth.Crawl
 
         public Inventory Walk()
         {
+            Inventory inventory = this.FacingTile.Pass();
             this.X += Direction.DeltaX;
             this.Y += Direction.DeltaY;
-            return new MyInventory();
+            return inventory;
         }
 
         public Crawler(int x, int y, Direction direction, Tile[,] tiles)
