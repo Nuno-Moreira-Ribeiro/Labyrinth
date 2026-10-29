@@ -296,6 +296,8 @@ public class LabyrinthCrawlerTest
         Assert.That(test.Y, Is.EqualTo(2));
         Assert.That(test.Direction, Is.EqualTo(Direction.South));
         Assert.That(test.FacingTile, Is.TypeOf<Outside>());
+        //To ensure that the Key has been removed from the inventory.
+        Assert.That(inventory.HasItem, Is.False);
     }
     #endregion
 
